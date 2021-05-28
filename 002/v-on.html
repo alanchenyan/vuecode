@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="app">
+        <button v-on:click="hello()">Hello方式一</button>
+        <button @click="hello()">Hello方式二</button>
+        <a href="https://www.jianshu.com" @click.prevent="hello()">阻止元素的默认行为</a>
+
+        <div @click="hello">
+             <button @click.stop="world">阻止事件冒泡</button>
+        </div>
+
+        <button @click="test($event)">事件参数一</button>
+        <button @click="test">事件参数二</button>
+    </div>
+    <script src="./vue.min.js" ></script>
+    <script>
+        // vm：Vue实例
+        var vm = new Vue({       
+            el:"#app",  
+            methods:{
+                hello(){
+                    console.log("Hello");
+                },
+                world(){
+                    console.log("World");
+                },
+
+                test(e){
+                    console.log("Test",e);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

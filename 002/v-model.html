@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="app">
+        <h1>{{text}}</h1>
+        <!-- 单向绑定-->
+        <input type="text" :value="text" />
+
+        <!-- 双向绑定 v-on和v-bind-->
+        <input type="text" :value="text" @input="text=$event.target.value" />
+
+        <!-- 双向绑定-->
+        <input type="text" v-model="text" />
+    </div>
+    <script src="./vue.min.js" ></script>
+    <script>
+        // vm：Vue实例
+        var vm = new Vue({       
+            el:"#app",  
+            data:{     
+                text:"AlanChen",
+            },
+        });
+    </script>
+</body>
+</html>
