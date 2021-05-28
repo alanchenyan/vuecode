@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="app">
+    </div>
+    <script src="./vue.min.js" ></script>
+    <script>
+
+       //1、组件配置对象
+        var Title = {
+
+            //属性
+            props: ["version"],
+
+            data(){
+                return {
+                    title: "库存管理系统",
+                };
+            },
+            template: `<h1>{{title}} {{version}}</h1>`,
+        }
+
+        //2、注册组件（全局注册）
+       // Vue.component("Title",Title);
+
+
+        // 3、使用组件
+        // vm：Vue实例
+        var vm = new Vue({   
+            el:"#app",  // css选择器
+
+            // 2、注册组件（局部注册）
+            components:{
+                Title
+            },
+
+            template: `<Title version="V1.0"></Title>`,
+        });
+    </script>
+</body>
+</html>
